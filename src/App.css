@@ -295,9 +295,9 @@ label + input {
   border: none;
   appearance: none !important;
   color: #000;
-  border: 1px solid #84aefb;
+  border: 1px solid #679200;
   box-sizing: border-box;
-  background: #9fc1ff;
+  background: #679200;
   cursor: pointer;
   margin-left: 10px;
   height: 28px;
@@ -716,7 +716,12 @@ a:visited {
 
 .App.dark .date-range-selector-wrapper .rdrMonthAndYearPickers select {
   color: white;
-  background: #16182e;
+  background: #679200;
+}
+.App.dark .rdrDayStartPreview,
+.App.dark .rdrDayInPreview,
+.App.dark .rdrDayEndPreview {
+  color: #679200 !important;
 }
 
 .date-range-selector-wrapper .rdrNextPrevButton {
@@ -728,7 +733,14 @@ a:visited {
 }
 
 .App.dark .date-range-selector-wrapper .rdrCalendarWrapper {
-  background-color: #16182e;
+  background-color: #3e4d18;
+}
+
+.App.dark .rdrEndEdge,
+.App.dark .rdrInRange,
+.App.dark .rdrSelected,
+.App.dark .rdrStartEdge {
+  background: #679200;
 }
 
 .date-range-selector-wrapper .rdrWeekDay {
