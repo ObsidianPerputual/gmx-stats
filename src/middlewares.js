@@ -24,6 +24,7 @@ export function requestLogger(req, res, next) {
   next()
 }
 
+// 限制资源访问的白名单
 export function csp(req, res, next) {
   const csp = {
     "default-src": ["'self'"],
@@ -33,7 +34,9 @@ export function csp(req, res, next) {
       "https://api.avax.network",
       "https://gmx-server-mainnet.uw.r.appspot.com",
       "https://api.coingecko.com",
-      "https://subgraph.satsuma-prod.com"
+      "https://subgraph.satsuma-prod.com",
+      "http://61.10.9.22:10367",
+      "https://pre-alpha-zkrollup-rpc.opside.network"
     ]
   }
   if (!IS_PRODUCTION) {

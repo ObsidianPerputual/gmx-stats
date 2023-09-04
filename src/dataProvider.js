@@ -17,7 +17,8 @@ import Token from '../abis/v1/Token.json'
 
 const providers = {
   arbitrum: new JsonRpcProvider('https://arb1.arbitrum.io/rpc'),
-  avalanche: new JsonRpcProvider('https://api.avax.network/ext/bc/C/rpc')
+  avalanche: new JsonRpcProvider('https://api.avax.network/ext/bc/C/rpc'),
+  odxTestnet: new JsonRpcProvider('https://pre-alpha-zkrollup-rpc.opside.network/odx-zkevm-testnet')
 }
 
 function getProvider(chainName) {
@@ -160,7 +161,13 @@ export const tokenSymbols = {
   '0x50b7545627a5162f82a992c33b87adc75187b218': 'WBTC.e',
   '0x130966628846bfd36ff31a822705796e8cb8c18d': 'MIM',
   '0xa7d7079b0fead91f3e65f86e8915cb59c1a4c664': 'USDC.e',
-  '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': 'USDC'
+  '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e': 'USDC',
+
+  // OdxTestnet
+  '0xc7a1bAe0Db6203F3Ee3C721909B3b959a1b437Ca': 'ETH',
+  '0xFefEab21A1CddBAda7c1077FBc1cC92e07B5ce78': 'USDT',
+  '0xAAb8FCD8DD22a5de73550F8e67fF9Ca970d1257E': 'BTC',
+  '0x6187f53e7AC4cfB95ea1c4E906e777d0d2f6763E': 'USDC',
 }
 
 function getTokenDecimals(token) {
@@ -210,6 +217,13 @@ const knownSwapSources = {
     '0x2ecf2a2e74b19aab2a62312167aff4b78e93b6c5': 'ParaSwap',
     '0xdef1c0ded9bec7f1a1670819833240f027b25eff': '0x',
     '0xe547cadbe081749e5b3dc53cb792dfaea2d02fd2': 'GMX PositionExecutor' // Position Executor
+  },
+  odxTestnet: {
+    '0xB3Cbdd85837B046f06Cc644c644255A840e63c42': 'GMX OrderBook',
+    '0x1099861d064d6C093C9D2F73602d7DAd12155073': 'GMX Router',
+    '0x8b3E1fc197ED431482e78D8552aC0bbF5b0c9A20': 'GMX FastPriceFeed', // FastPriceFeed
+    '0x622e004355Fbe4B097c1BAeD27bbE3812A110c0F': 'GMX PositionManager C',
+    '0x6A84F186A77F22B701Cb1CbA18da8b29E813A303': 'GMX PositionRouter C'
   }
 }
 
@@ -288,6 +302,10 @@ export function useGraph(querySource, { subgraph = null, subgraphUrl = null, cha
       subgraph = getChainSubgraph(chainName)
     }
     subgraphUrl = `https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/${subgraph}/api`;
+  }
+
+  if(chainName==='odxTestnet'){
+    subgraphUrl = ` http://61.10.9.22:10367/subgraphs/name/odx/odx-zkevm-stats`;
   }
 
   const client = new ApolloClient({

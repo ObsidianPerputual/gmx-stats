@@ -118,7 +118,7 @@ const App = () => {
                 )}
               </div>
               <a
-                href="https://app.odx.finance"
+                href="https://odx.finance"
                 target="_blank"
                 className="nav-logo"
                 rel="noreferrer"
@@ -142,7 +142,7 @@ const App = () => {
             </div>
             <div className="nav-right">
               <a
-                href="https://app.odx.finance"
+                href="https://odx.finance"
                 target="_blank"
                 className="nav-link"
                 rel="noreferrer"
