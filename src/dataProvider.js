@@ -305,7 +305,7 @@ export function useGraph(querySource, { subgraph = null, subgraphUrl = null, cha
   }
 
   if(chainName==='odxTestnet'){
-    subgraphUrl = ` http://61.10.9.22:10367/subgraphs/name/odx/odx-zkevm-stats`;
+    subgraphUrl = ` https://subgraph.odx.finance/subgraphs/name/odx/odx-zkevm-stats`;
   }
 
   const client = new ApolloClient({

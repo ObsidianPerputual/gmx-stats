@@ -35,7 +35,7 @@ export function csp(req, res, next) {
       "https://gmx-server-mainnet.uw.r.appspot.com",
       "https://api.coingecko.com",
       "https://subgraph.satsuma-prod.com",
-      "http://61.10.9.22:10367",
+      "https://subgraph.odx.finance",
       "https://pre-alpha-zkrollup-rpc.opside.network"
     ]
   }
