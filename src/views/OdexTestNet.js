@@ -60,7 +60,7 @@ import useChartDomain from '../hooks/useChartDomain';
 
 const NOW = Math.floor(Date.now() / 1000)
 
-function Avalanche(props) {
+function OdexTestNet(props) {
   const DEFAULT_GROUP_PERIOD = 86400
   const [groupPeriod] = useState(DEFAULT_GROUP_PERIOD)
   const [dataRange, setDataRange] = useState({ fromValue: moment().subtract(3, 'month').toDate(), toValue: null })
@@ -70,12 +70,12 @@ function Avalanche(props) {
   const from = dataRange.fromValue ? Math.floor(+new Date(dataRange.fromValue) / 1000) : undefined
   const to = dataRange.toValue ? Math.floor(+new Date(dataRange.toValue) / 1000) : NOW
 
-  const params = { from, to, groupPeriod, chainName: 'avalanche' }
+  const params = { from, to, groupPeriod, chainName: 'odxTestnet' }
 
   const [fundingRateData, fundingRateLoading] = useFundingRateData(params)
 
   const [volumeData, volumeLoading] = useVolumeData(params)
-  const [totalVolumeData, totalVolumeLoading] = useVolumeData({ chainName: 'avalanche' })
+  const [totalVolumeData, totalVolumeLoading] = useVolumeData({ chainName: 'odxTestnet' })
   // const [volumeData, volumeLoading] = useVolumeDataFromServer(params)
   // const [totalVolume] = useTotalVolumeFromServer()
   const [totalVolume, totalVolumeDelta] = useMemo(() => {
@@ -88,7 +88,7 @@ function Avalanche(props) {
   }, [totalVolumeData])
 
   const [feesData, feesLoading] = useFeesData(params)
-  const [totalFeesData, totalFeesLoading] = useFeesData({ chainName: 'avalanche' })
+  const [totalFeesData, totalFeesLoading] = useFeesData({ chainName: 'odxTestnet' })
   const [totalFees, totalFeesDelta] = useMemo(() => {
     if (!totalFeesData) {
       return []
@@ -99,7 +99,7 @@ function Avalanche(props) {
   }, [totalFeesData])
 
   const [glpData, glpLoading] = useGlpData(params)
-  const [totalGlpData, totalGlpLoading] = useGlpData({ chainName: 'avalanche' })
+  const [totalGlpData, totalGlpLoading] = useGlpData({ chainName: 'odxTestnet' })
   const [totalAum, totalAumDelta] = useMemo(() => {
     if (!totalGlpData) {
       return []
@@ -116,7 +116,7 @@ function Avalanche(props) {
   const [minGlpPrice, maxGlpPrice] = useChartDomain(glpPerformanceData, ["syntheticPrice", "glpPrice", "glpPlusFees", "lpBtcPrice", "lpEthPrice", "lpAvaxPrice"], [0.4, 1.7])
 
   const [tradersData, tradersLoading] = useTradersData(params)
-  const [totalTradersData, totalTradersLoading] = useTradersData({ chainName: 'avalanche' })
+  const [totalTradersData, totalTradersLoading] = useTradersData({ chainName: 'odxTestnet' })
   const [openInterest, openInterestDelta] = useMemo(() => {
     if (!totalTradersData) {
       return []
@@ -127,7 +127,7 @@ function Avalanche(props) {
   }, [totalTradersData])
 
   const [usersData, usersLoading] = useUsersData(params)
-  const [totalUsersData, totalUsersLoading] = useUsersData({ chainName: 'avalanche' })
+  const [totalUsersData, totalUsersLoading] = useUsersData({ chainName: 'odxTestnet' })
   const [totalUsers, totalUsersDelta] = useMemo(() => {
     if (!totalUsersData) {
       return [null, null]
@@ -179,7 +179,7 @@ function Avalanche(props) {
     <div className="Home">
       <div className="page-title-section">
         <div className="page-title-block">
-          <h1>Analytics / Avalanche</h1>
+          <h1>Analytics / OdexTestNet</h1>
           {lastSubgraphBlock && lastBlock &&
             <p className={cx('page-description', { warning: isObsolete })}>
               {isObsolete && "Data is obsolete. "}
@@ -509,4 +509,4 @@ function Avalanche(props) {
   );
 }
 
-export default Avalanche;
+export default OdexTestNet;
