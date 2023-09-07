@@ -280,7 +280,7 @@ function Avalanche(props) {
           />
         </div>
         <div className="chart-cell">
-          <ChartWrapper title="GLP AUM & Glp Supply" loading={glpLoading} data={glpData} csvFields={[{ key: 'aum' }, { key: 'glpSupply' }]}>
+          <ChartWrapper title="GLP AUM & Olp Supply" loading={glpLoading} data={glpData} csvFields={[{ key: 'aum' }, { key: 'glpSupply' }]}>
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
               <LineChart data={glpData} syncId="syncGlp">
                 <CartesianGrid strokeDasharray="10 10" />
@@ -293,7 +293,7 @@ function Avalanche(props) {
                 />
                 <Legend />
                 <Line isAnimationActive={false} type="monotone" strokeWidth={2} unit="$" dot={false} dataKey="aum" stackId="a" name="GLP AUM" stroke={COLORS[0]} />
-                <Line isAnimationActive={false} type="monotone" strokeWidth={2} dot={false} dataKey="glpSupply" stackId="a" name="Glp Supply" stroke={COLORS[1]} />
+                <Line isAnimationActive={false} type="monotone" strokeWidth={2} dot={false} dataKey="glpSupply" stackId="a" name="Olp Supply" stroke={COLORS[1]} />
               </LineChart>
             </ResponsiveContainer>
           </ChartWrapper>
@@ -308,7 +308,7 @@ function Avalanche(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="Glp Performance"
+            title="Olp Performance"
             loading={glpLoading}
             data={glpPerformanceData}
             csvFields={[{key: 'syntheticPrice'}, {key: 'glpPrice'}, {key: 'glpPlusFees'}, {key: 'lpBtcPrice'}, {key: 'lpEthPrice'}]}
@@ -332,16 +332,16 @@ function Avalanche(props) {
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{color: COLORS[0]}}>% of Index</span> is Glp with fees / Index Price * 100. Index is a basket 16.6% AVAX, 16.6% BTC, 16.6% ETH and 50% USDC rebalanced once&nbsp;a&nbsp;day
+                <span style={{color: COLORS[0]}}>% of Index</span> is Olp with fees / Index Price * 100. Index is a basket 16.6% AVAX, 16.6% BTC, 16.6% ETH and 50% USDC rebalanced once&nbsp;a&nbsp;day
                   <br/>
-                <span style={{color: COLORS[4]}}>% of LP TOKEN-USDC</span> is Glp Price with fees / LP TOKEN-USDC * 100<br/>
+                <span style={{color: COLORS[4]}}>% of LP TOKEN-USDC</span> is Olp Price with fees / LP TOKEN-USDC * 100<br/>
               </p>
             </div>
           </ChartWrapper>
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="Glp Price Comparison"
+            title="Olp Price Comparison"
             loading={glpLoading}
             data={glpPerformanceData}
             csvFields={[{ key: 'syntheticPrice' }, { key: 'glpPrice' }, { key: 'glpPlusFees' }, { key: 'lpBtcPrice' }, { key: 'lpEthPrice' }]}
@@ -359,8 +359,8 @@ function Avalanche(props) {
                 <Legend />
 
                 <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="syntheticPrice" name="Index Price" stroke={COLORS[2]} />
-                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="glpPrice" name="Glp Price" stroke={COLORS[1]} />
-                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={2} dot={false} dataKey="glpPlusFees" name="Glp w/ fees" stroke={COLORS[3]} />
+                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="glpPrice" name="Olp Price" stroke={COLORS[1]} />
+                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={2} dot={false} dataKey="glpPlusFees" name="Olp w/ fees" stroke={COLORS[3]} />
                 <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="lpBtcPrice" name="LP BTC-USDC" stroke={COLORS[2]} />
                 <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="lpEthPrice" name="LP ETH-USDC" stroke={COLORS[4]} />
                 <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="lpAvaxPrice" name="LP AVAX-USDC" stroke={COLORS[5]} />
@@ -368,7 +368,7 @@ function Avalanche(props) {
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{color: COLORS[3]}}>Glp with fees</span> is based on GLP share of fees received and excluding esGMX rewards<br/>
+                <span style={{color: COLORS[3]}}>Olp with fees</span> is based on GLP share of fees received and excluding esGMX rewards<br/>
                 <span style={{color: COLORS[2]}}>Index Price</span> is a basket 16.6% AVAX, 16.6% BTC, 16.6% ETH and 50% USDC rebalanced once&nbsp;a&nbsp;day
               </p>
             </div>

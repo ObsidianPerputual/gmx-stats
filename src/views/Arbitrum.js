@@ -395,7 +395,7 @@ function Arbitrum(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="GLP AUM & Glp Supply"
+            title="GLP AUM & Olp Supply"
             loading={glpLoading}
             data={glpData}
             csvFields={[{ key: "aum" }, { key: "glpSupply" }]}
@@ -437,7 +437,7 @@ function Arbitrum(props) {
                   dot={false}
                   dataKey="glpSupply"
                   stackId="a"
-                  name="Glp Supply"
+                  name="Olp Supply"
                   stroke={COLORS[1]}
                 />
               </LineChart>
@@ -449,7 +449,7 @@ function Arbitrum(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="Glp Performance"
+            title="Olp Performance"
             loading={glpLoading}
             data={glpPerformanceData}
             csvFields={[
@@ -522,13 +522,13 @@ function Arbitrum(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[0] }}>% of Index (with fees)</span>{" "}
-                is Glp with fees / Index Price * 100. Index is a basket of 25%
+                is Olp with fees / Index Price * 100. Index is a basket of 25%
                 BTC, 25% ETH, 50% USDC rebalanced once&nbsp;a&nbsp;day
                 <br />
                 <span style={{ color: COLORS[4] }}>
                   % of LP ETH-USDC (with fees)
                 </span>{" "}
-                is Glp Price with fees / LP ETH-USDC * 100
+                is Olp Price with fees / LP ETH-USDC * 100
                 <br />
               </p>
             </div>
@@ -536,7 +536,7 @@ function Arbitrum(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="Glp Price Comparison"
+            title="Olp Price Comparison"
             loading={glpLoading}
             data={glpPerformanceData}
             csvFields={[
@@ -593,7 +593,7 @@ function Arbitrum(props) {
                   strokeWidth={1}
                   dot={false}
                   dataKey="glpPrice"
-                  name="Glp Price"
+                  name="Olp Price"
                   stroke={COLORS[1]}
                 />
                 <Line
@@ -603,7 +603,7 @@ function Arbitrum(props) {
                   strokeWidth={2}
                   dot={false}
                   dataKey="glpPlusFees"
-                  name="Glp w/ fees"
+                  name="Olp w/ fees"
                   stroke={COLORS[3]}
                 />
                 <Line
@@ -630,7 +630,7 @@ function Arbitrum(props) {
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{ color: COLORS[3] }}>Glp with fees</span> is based
+                <span style={{ color: COLORS[3] }}>Olp with fees</span> is based
                 on GLP share of fees received and excluding esGMX rewards
                 <br />
                 <span style={{ color: COLORS[2] }}>Index Price</span> is a
