@@ -368,7 +368,7 @@ function OdexTestNet(props) {
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{color: COLORS[3]}}>Olp with fees</span> is based on OLP share of fees received and excluding esGMX rewards<br/>
+                <span style={{color: COLORS[3]}}>Olp with fees</span> is based on OLP share of fees received and excluding esODX rewards<br/>
                 <span style={{color: COLORS[2]}}>Index Price</span> is a basket 16.6% AVAX, 16.6% BTC, 16.6% ETH and 50% USDC rebalanced once&nbsp;a&nbsp;day
               </p>
             </div>

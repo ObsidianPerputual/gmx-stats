@@ -631,7 +631,7 @@ function Arbitrum(props) {
             <div className="chart-description">
               <p>
                 <span style={{ color: COLORS[3] }}>Olp with fees</span> is based
-                on GLP share of fees received and excluding esGMX rewards
+                on GLP share of fees received and excluding esODX rewards
                 <br />
                 <span style={{ color: COLORS[2] }}>Index Price</span> is a
                 basket of 25% BTC, 25% ETH, 50% USDC rebalanced

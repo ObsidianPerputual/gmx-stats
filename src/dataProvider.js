@@ -5,7 +5,7 @@ import fetch from 'cross-fetch';
 import * as ethers from 'ethers'
 
 import { fillPeriods } from './helpers'
-import { addresses, getAddress, ARBITRUM, AVALANCHE } from './addresses'
+import { addresses, getAddress, ARBITRUM, AVALANCHE, ODXTESTNET } from './addresses'
 
 const BigNumber = ethers.BigNumber
 const formatUnits = ethers.utils.formatUnits
@@ -31,7 +31,8 @@ function getProvider(chainName) {
 function getChainId(chainName) {
   const chainId = {
     arbitrum: ARBITRUM,
-    avalanche: AVALANCHE
+    avalanche: AVALANCHE,
+    odxTestnet: ODXTESTNET
   }[chainName]
   if (!chainId) {
     throw new Error(`Unknown chain ${chainName}`)
