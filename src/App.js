@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import cx from "classnames";
 // import Arbitrum from "./views/Arbitrum";
 import Referrals from "./views/Referrals";
-import OdexTestnet from "./views/OdexTestnet";
+import OdexTestnet from "./views/OdexTestNet";
 // import Avalanche from "./views/Avalanche";
 import Trading from "./views/Trading";
 import "./App.css";
