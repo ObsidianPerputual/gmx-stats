@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import cx from "classnames";
 // import Arbitrum from "./views/Arbitrum";
 import Referrals from "./views/Referrals";
-import OdexTestNet from "./views/OdexTestNet";
+import OdexTestnet from "./views/OdexTestnet";
 // import Avalanche from "./views/Avalanche";
 import Trading from "./views/Trading";
 import "./App.css";
@@ -38,12 +38,12 @@ function AppHeaderLinks({ mode, small, clickCloseIcon }) {
       )}
       <div className="App-header-link-container">
         {/* <NavLink
-          to="/odexTestNet"
+          to="/odexTestnet"
           exact
           className="nav-link"
           activeClassName="active"
         >
-          OdexTestNet
+          OdexTestnet
         </NavLink> */}
       </div>
       <div className="App-header-link-container">
@@ -129,12 +129,12 @@ const App = () => {
                 />
               </a>
               {/* <NavLink
-                to="/odexTestNet"
+                to="/odexTestnet"
                 exact
                 className="nav-link"
                 activeClassName="active"
               >
-                OdexTestNet
+                OdexTestnet
               </NavLink> */}
               {/* <NavLink to="/avalanche" className="nav-link">
                 Avalanche
@@ -183,12 +183,12 @@ const App = () => {
           </AnimatePresence>
           <div className="content">
             <Route path="/" exact>
-              <Redirect to="/odexTestNet" />
+              <Redirect to="/odexTestnet" />
             </Route>
             <Route
               exact
-              path="/odexTestNet"
-              render={(props) => <OdexTestNet {...props} mode={mode} />}
+              path="/odexTestnet"
+              render={(props) => <OdexTestnet {...props} mode={mode} />}
             />
             {/* <Route
               exact
