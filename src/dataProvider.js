@@ -41,7 +41,7 @@ function getChainId(chainName) {
 }
 
 const NOW_TS = parseInt(Date.now() / 1000)
-const FIRST_DATE_TS = parseInt(+(new Date(2021, 7, 31)) / 1000)
+const FIRST_DATE_TS = parseInt(+(new Date(2023, 8, 1)) / 1000)//月份+1，实际是2023-09-01
 
 function fillNa(arr) {
   const prevValues = {}
