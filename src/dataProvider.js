@@ -220,11 +220,11 @@ const knownSwapSources = {
     '0xe547cadbe081749e5b3dc53cb792dfaea2d02fd2': 'GMX PositionExecutor' // Position Executor
   },
   odxTestnet: {
-    '0xb3cbdd85837b046f06cc644c644255a840e63c42': 'GMX OrderBook',
-    '0x1099861d064d6c093c9d2f73602d7dad12155073': 'GMX Router',
-    '0x8b3e1fc197ed431482e78d8552ac0bbf5b0c9a20': 'GMX FastPriceFeed', // FastPriceFeed
-    '0x622e004355fbe4b097c1baed27bbe3812a110c0f': 'GMX PositionManager C',
-    '0x6a84f186a77f22b701cb1cba18da8b29e813a303': 'GMX PositionRouter C'
+    '0xb3cbdd85837b046f06cc644c644255a840e63c42': 'ODX OrderBook',
+    '0x1099861d064d6c093c9d2f73602d7dad12155073': 'ODX Router',
+    '0x8b3e1fc197ed431482e78d8552ac0bbf5b0c9a20': 'ODX FastPriceFeed', // FastPriceFeed
+    '0x622e004355fbe4b097c1baed27bbe3812a110c0f': 'ODX PositionManager C',
+    '0x6a84f186a77f22b701cb1cba18da8b29e813a303': 'ODX PositionRouter C'
   }
 }
 
