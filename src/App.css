@@ -149,8 +149,11 @@ label + input {
   font-weight: 700;
   overflow: hidden;
   white-space: pre-wrap;
-  color: #fff;
   margin-top: 12px;
+}
+
+.App.dark .total-stat-value{
+  color: #fff;
 }
 
 .total-stat-delta {

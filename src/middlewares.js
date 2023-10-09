@@ -35,16 +35,16 @@ export function csp(req, res, next) {
       "https://gmx-server-mainnet.uw.r.appspot.com",
       "https://api.coingecko.com",
       "https://subgraph.satsuma-prod.com",
-      "http://61.10.9.22:10367",
+      "https://subgraph.odx.finance",
       "https://pre-alpha-zkrollup-rpc.opside.network"
     ]
   }
   if (!IS_PRODUCTION) {
-    // csp["default-src"].push("localhost:3114")
-    // csp["default-src"].push("localhost:3001")
-    // csp["style-src"].push("'unsafe-inline'")
-    // csp["connect-src"].push("localhost:3114", "ws://localhost:3114")
-    // csp["connect-src"].push("localhost:3001", "ws://localhost:3001")
+    csp["default-src"].push("localhost:3114")
+    csp["default-src"].push("localhost:3001")
+    csp["style-src"].push("'unsafe-inline'")
+    csp["connect-src"].push("localhost:3114", "ws://localhost:3114")
+    csp["connect-src"].push("localhost:3001", "ws://localhost:3001")
   }
   const cspString = Object.entries(csp).map(([key, value]) => `${key} ${value.join(' ')}`).join('; ')
   res.set("Content-Security-Policy", cspString)

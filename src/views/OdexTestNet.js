@@ -60,7 +60,7 @@ import useChartDomain from '../hooks/useChartDomain';
 
 const NOW = Math.floor(Date.now() / 1000)
 
-function OdexTestNet(props) {
+function OdexTestnet(props) {
   const DEFAULT_GROUP_PERIOD = 86400
   const [groupPeriod] = useState(DEFAULT_GROUP_PERIOD)
   const [dataRange, setDataRange] = useState({ fromValue: moment().subtract(3, 'month').toDate(), toValue: null })
@@ -177,14 +177,14 @@ function OdexTestNet(props) {
 
   return (
     <div className="Home">
-      <div className="page-title-section">
+      <div className="page-title-section" style={{overflow: "visible"}}>
         <div className="page-title-block">
-          <h1>Analytics / OdexTestNet</h1>
+          <h1>Analytics / ODX zkEVM Testnet</h1>
           {lastSubgraphBlock && lastBlock &&
             <p className={cx('page-description', { warning: isObsolete })}>
               {isObsolete && "Data is obsolete. "}
               Updated {moment(lastSubgraphBlock.timestamp * 1000).fromNow()}
-              &nbsp;at block <a rel="noreferrer" target="_blank" href={`https://snowtrace.io/block/${lastSubgraphBlock.number}`}>{lastSubgraphBlock.number}</a>
+              &nbsp;at block <a rel="noreferrer" target="_blank" href={`https://odx-zkevm-testnet.zkevm.opside.info/block/${lastSubgraphBlock.number}`}>{lastSubgraphBlock.number}</a>
             </p>
           }
           {
@@ -225,7 +225,7 @@ function OdexTestNet(props) {
         </div>
         <div className="chart-cell stats">
           {totalAum ? <>
-            <div className="total-stat-label">GLP Pool</div>
+            <div className="total-stat-label">OLP Pool</div>
             <div className="total-stat-value">
               {formatNumber(totalAum, { currency: true })}
               {!!totalAumDelta &&
@@ -280,7 +280,7 @@ function OdexTestNet(props) {
           />
         </div>
         <div className="chart-cell">
-          <ChartWrapper title="GLP AUM & Glp Supply" loading={glpLoading} data={glpData} csvFields={[{ key: 'aum' }, { key: 'glpSupply' }]}>
+          <ChartWrapper title="OLP AUM & Olp Supply" loading={glpLoading} data={glpData} csvFields={[{ key: 'aum' }, { key: 'glpSupply' }]}>
             <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
               <LineChart data={glpData} syncId="syncGlp">
                 <CartesianGrid strokeDasharray="10 10" />
@@ -292,8 +292,8 @@ function OdexTestNet(props) {
                   contentStyle={{ textAlign: 'left' }}
                 />
                 <Legend />
-                <Line isAnimationActive={false} type="monotone" strokeWidth={2} unit="$" dot={false} dataKey="aum" stackId="a" name="GLP AUM" stroke={COLORS[0]} />
-                <Line isAnimationActive={false} type="monotone" strokeWidth={2} dot={false} dataKey="glpSupply" stackId="a" name="Glp Supply" stroke={COLORS[1]} />
+                <Line isAnimationActive={false} type="monotone" strokeWidth={2} unit="$" dot={false} dataKey="aum" stackId="a" name="OLP AUM" stroke={COLORS[0]} />
+                <Line isAnimationActive={false} type="monotone" strokeWidth={2} dot={false} dataKey="glpSupply" stackId="a" name="Olp Supply" stroke={COLORS[1]} />
               </LineChart>
             </ResponsiveContainer>
           </ChartWrapper>
@@ -308,7 +308,7 @@ function OdexTestNet(props) {
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="Glp Performance"
+            title="Olp Performance"
             loading={glpLoading}
             data={glpPerformanceData}
             csvFields={[{key: 'syntheticPrice'}, {key: 'glpPrice'}, {key: 'glpPlusFees'}, {key: 'lpBtcPrice'}, {key: 'lpEthPrice'}]}
@@ -326,22 +326,22 @@ function OdexTestNet(props) {
                 <Legend />
                 <Line dot={false} isAnimationActive={false} type="monotone" unit="%" dataKey="performanceLpBtcCollectedFees" name="% LP BTC-USDC" stroke={COLORS[2]} />
                 <Line dot={false} isAnimationActive={false} type="monotone" unit="%" dataKey="performanceLpEthCollectedFees" name="% LP ETH-USDC" stroke={COLORS[4]} />
-                <Line dot={false} isAnimationActive={false} type="monotone" unit="%" dataKey="performanceLpAvaxCollectedFees" name="% LP AVAX-USDC" stroke={COLORS[3]} />
+                {/* <Line dot={false} isAnimationActive={false} type="monotone" unit="%" dataKey="performanceLpAvaxCollectedFees" name="% LP AVAX-USDC" stroke={COLORS[3]} /> */}
                 <Line dot={false} isAnimationActive={false} type="monotone" unit="%" dataKey="performanceSyntheticCollectedFees" name="% Index" stroke={COLORS[0]} />
               </LineChart>
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{color: COLORS[0]}}>% of Index</span> is Glp with fees / Index Price * 100. Index is a basket 16.6% AVAX, 16.6% BTC, 16.6% ETH and 50% USDC rebalanced once&nbsp;a&nbsp;day
+                <span style={{color: COLORS[0]}}>% of Index</span> is Olp with fees / Index Price * 100. Index is a basket 25% BTC, 25% ETH ,25% USDT and 25% USDC rebalanced once&nbsp;a&nbsp;day
                   <br/>
-                <span style={{color: COLORS[4]}}>% of LP TOKEN-USDC</span> is Glp Price with fees / LP TOKEN-USDC * 100<br/>
+                <span style={{color: COLORS[4]}}>% of LP TOKEN-USDC</span> is Olp Price with fees / LP TOKEN-USDC * 100<br/>
               </p>
             </div>
           </ChartWrapper>
         </div>
         <div className="chart-cell">
           <ChartWrapper
-            title="Glp Price Comparison"
+            title="Olp Price Comparison"
             loading={glpLoading}
             data={glpPerformanceData}
             csvFields={[{ key: 'syntheticPrice' }, { key: 'glpPrice' }, { key: 'glpPlusFees' }, { key: 'lpBtcPrice' }, { key: 'lpEthPrice' }]}
@@ -359,17 +359,17 @@ function OdexTestNet(props) {
                 <Legend />
 
                 <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="syntheticPrice" name="Index Price" stroke={COLORS[2]} />
-                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="glpPrice" name="Glp Price" stroke={COLORS[1]} />
-                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={2} dot={false} dataKey="glpPlusFees" name="Glp w/ fees" stroke={COLORS[3]} />
+                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="glpPrice" name="Olp Price" stroke={COLORS[1]} />
+                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={2} dot={false} dataKey="glpPlusFees" name="Olp w/ fees" stroke={COLORS[3]} />
                 <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="lpBtcPrice" name="LP BTC-USDC" stroke={COLORS[2]} />
                 <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="lpEthPrice" name="LP ETH-USDC" stroke={COLORS[4]} />
-                <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="lpAvaxPrice" name="LP AVAX-USDC" stroke={COLORS[5]} />
+                {/* <Line isAnimationActive={false} type="monotone" unit="$" strokeWidth={1} dot={false} dataKey="lpAvaxPrice" name="LP AVAX-USDC" stroke={COLORS[5]} /> */}
               </LineChart>
             </ResponsiveContainer>
             <div className="chart-description">
               <p>
-                <span style={{color: COLORS[3]}}>Glp with fees</span> is based on GLP share of fees received and excluding esGMX rewards<br/>
-                <span style={{color: COLORS[2]}}>Index Price</span> is a basket 16.6% AVAX, 16.6% BTC, 16.6% ETH and 50% USDC rebalanced once&nbsp;a&nbsp;day
+                <span style={{color: COLORS[3]}}>Olp with fees</span> is based on OLP share of fees received and excluding esODX rewards<br/>
+                <span style={{color: COLORS[2]}}>Index Price</span> is a  basket 25% BTC, 25% ETH ,25% USDT and 25% USDC rebalanced once&nbsp;a&nbsp;day
               </p>
             </div>
           </ChartWrapper>
@@ -451,7 +451,7 @@ function OdexTestNet(props) {
               yaxisDataKey="ETH"
               yaxisTickFormatter={yaxisFormatterPercent}
               tooltipFormatter={tooltipFormatterPercent}
-              items={[{ key: 'WETH.e' }, { key: 'WBTC.e' }, { key: 'AVAX' }, { key: 'MIM' }, { key: 'USDC' }, { key: 'USDC.e' }]}
+              items={[{ key: 'ETH' }, { key: 'USDT' }, { key: 'BTC' }, { key: 'USDC' }]}
               type="Line"
               yaxisDomain={[0, 90 /* ~87% is a maximum yearly borrow rate */]}
             />
@@ -470,7 +470,7 @@ function OdexTestNet(props) {
               items={[
                 { key: 'uniqueSwapCount', name: 'Swaps'},
                 { key: 'uniqueMarginCount', name: 'Margin trading'},
-                { key: 'uniqueMintBurnCount', name: 'Mint & Burn GLP' }
+                { key: 'uniqueMintBurnCount', name: 'Mint & Burn OLP' }
               ]}
               type="Composed"
             />
@@ -509,4 +509,4 @@ function OdexTestNet(props) {
   );
 }
 
-export default OdexTestNet;
+export default OdexTestnet;
